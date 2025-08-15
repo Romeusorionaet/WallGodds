@@ -5,7 +5,7 @@ import NavBar from "../CommonModule/NavBarModule/NavBar";
 import Mobile from "./MobileSection/Mobile";
 import Tablet from "./TabletSection/Tablet";
 import Desktop from "./DesktopSection/Desktop";
-import SideBar from "./SideBarModule/SideBar";
+import SideBar from "../SideBarModule/SideBar";
 
 const Gallery = () => {
   const galleryContentRef = useRef(null);
