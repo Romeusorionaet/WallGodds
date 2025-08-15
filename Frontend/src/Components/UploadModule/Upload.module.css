@@ -1,28 +1,126 @@
-.dev {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  /* border: 2px solid black; */
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  position: relative;
+}
+
+.mainContent {
+  /* border: 2px solid saddlebrown; */
+  display: grid;
+  grid-template-columns: auto 1fr;
+  overflow: hidden;
+  position: relative;
+  margin-top: 6em !important;
+  width: 100vw;
+  /* padding:1em; */
+}
+
+.gallery {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(min-content, max-content));
+  overflow-y: auto;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.imgGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-content: start;
+}
+
+.galleryContent {
+  /* border: 2px solid crimson; */
+  width: 78.7vw;
+  overflow-y: auto;
+  padding-top: 0px;
+  margin-left: 22.7%;
+  position: relative;
+}
+
+.blendOverlay {
+  position: sticky;
+  margin-bottom: 1.1em;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  width: 99.8%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.blendOverlay2 {
+  position: sticky;
+  display: none;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  width: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.15s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .imgGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1560px) {
+  .galleryContent {
+    margin-left: 22.7%;
+  }
+}
+
+@media (max-width: 425px) {
+  .container {
+    height: 96.8vh;
+  }
+
+  .mainContent {
+    width: 100%;
     justify-content: center;
-    padding: 40px 40px 0 40px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin-top: 75%;
-}
+    justify-items: center;
+    margin-top: 4.8em !important;
+    margin-bottom: 4em;
+  }
 
-.dev h1 {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
-}
+  .galleryContent {
+    margin-left: 3%;
+    padding: 0;
+    width: 89%;
+  }
 
-.dev p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    color: #666;
-    text-align: center;
+  .blendOverlay {
+    width: 100%;
+  }
+
+  .blendOverlay2 {
+    display: block;
+  }
 }

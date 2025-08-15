@@ -16,38 +16,38 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function AppContent() {
-    const location = useLocation();
+  const location = useLocation();
 
-    // Track page views - remove DEV check for testing
-    useEffect(() => {
-        pageview(location.pathname + location.search);
-    }, [location]);
+  // Track page views - remove DEV check for testing
+  useEffect(() => {
+    pageview(location.pathname + location.search);
+  }, [location]);
 
-    return (
-        <>
-            <Analytics />
-            <SpeedInsights />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/gallery/*" element={<Gallery />} />
-                <Route path="/upload" element={<Upload />} />
-                <Route path="/aboutus" element={<Aboutus />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/*" element={<Error404 />} />
-            </Routes>
-        </>
-    );
+  return (
+    <>
+      <Analytics />
+      <SpeedInsights />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gallery/*" element={<Gallery />} />
+        <Route path="/upload/*" element={<Upload />} />
+        <Route path="/aboutus" element={<Aboutus />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/*" element={<Error404 />} />
+      </Routes>
+    </>
+  );
 }
 
 function App() {
-    // Initialize Google Analytics here
-    useGoogleAnalytics();
+  // Initialize Google Analytics here
+  useGoogleAnalytics();
 
-    return (
-        <Router>
-            <AppContent />
-        </Router>
-    );
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
 }
 
 export default App;
