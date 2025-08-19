@@ -4,13 +4,12 @@ import styles from "./SideBar.module.css";
 
 const SideBar = () => {
   const location = useLocation();
-
-  // rota base detectada (primeiro segmento após /)
-  const baseRoute = location.pathname.split("/")[1] || "gallery";
-
   const [activeItem, setActiveItem] = useState(
     location.pathname.split("/").pop() || "desktop"
   );
+
+  // base route detected (first segment after /)
+  const baseRoute = location.pathname.split("/")[1] || "gallery";
 
   // Sync activeItem with URL path
   useEffect(() => {
